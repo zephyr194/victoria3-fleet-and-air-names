@@ -1,0 +1,72 @@
+dfn_review_fleet_names = {
+	is_shown = { is_ai = no }
+	possible = {
+		save_temporary_scope_as = dfn_decision_country
+		any_military_formation = {
+			is_fleet = yes
+			owner = scope:dfn_decision_country
+			NOT = { has_variable = dfn_locked }
+		}
+	}
+	when_taken = {
+		set_variable = dfn_registry_enabled
+		dfn_review_fleet = yes
+	}
+	ai_chance = { base = 0 }
+}
+
+dfn_unlock_fleet_names = {
+	is_shown = {
+		is_ai = no
+		has_variable = dfn_registry_enabled
+	}
+	possible = {
+		save_temporary_scope_as = dfn_decision_country
+		any_military_formation = {
+			is_fleet = yes
+			owner = scope:dfn_decision_country
+			has_variable = dfn_locked
+		}
+	}
+	when_taken = {
+		save_scope_as = dfn_registry_country
+		every_military_formation = {
+			limit = { is_fleet = yes owner = scope:dfn_registry_country }
+			remove_variable = dfn_locked
+			remove_variable = dfn_reviewed
+		}
+	}
+	ai_chance = { base = 0 }
+}
+
+dfn_register_air_names = {
+	is_shown = { is_ai = no }
+	possible = { game_date >= 1903.1.1 }
+	when_taken = {
+		if = {
+			limit = { NOT = { has_variable = dfn_air_count } }
+			set_variable = { name = dfn_air_count value = 0 }
+		}
+		change_variable = { name = dfn_air_count add = 1 }
+		set_variable = { name = dfn_air_cursor value = var:dfn_air_count }
+		trigger_event = dfn_names.2
+	}
+	ai_chance = { base = 0 }
+}
+
+dfn_review_air_names = {
+	is_shown = {
+		is_ai = no
+		has_variable = dfn_air_count
+	}
+	possible = { var:dfn_air_count > 0 }
+	when_taken = {
+		change_variable = { name = dfn_air_cursor add = 1 }
+		if = {
+			limit = { var:dfn_air_cursor > var:dfn_air_count }
+			set_variable = { name = dfn_air_cursor value = 1 }
+		}
+		trigger_event = dfn_names.2
+	}
+	ai_chance = { base = 0 }
+}

@@ -1,0 +1,61 @@
+# Country scope. Registration also runs before opening the review, so new fleets
+# can receive a number without waiting for the next monthly pulse.
+dfn_register_fleets = {
+	save_scope_as = dfn_registry_country
+	if = {
+		limit = { NOT = { has_variable = dfn_next_fleet } }
+		set_variable = { name = dfn_next_fleet value = 1 }
+	}
+	every_military_formation = {
+		limit = { is_fleet = yes owner = scope:dfn_registry_country }
+		if = {
+			limit = {
+				OR = {
+					NOT = { has_variable = dfn_fleet_number }
+					NOT = { var:dfn_registered_owner = scope:dfn_registry_country }
+				}
+			}
+			set_variable = { name = dfn_fleet_number value = scope:dfn_registry_country.var:dfn_next_fleet }
+			set_variable = { name = dfn_registered_owner value = scope:dfn_registry_country }
+			remove_variable = dfn_reviewed
+			scope:dfn_registry_country = {
+				change_variable = { name = dfn_next_fleet add = 1 }
+			}
+		}
+	}
+}
+
+dfn_review_fleet = {
+	dfn_register_fleets = yes
+	if = {
+		limit = {
+			NOT = {
+				any_military_formation = {
+					dfn_reviewable_fleet = yes
+					NOT = { has_variable = dfn_reviewed }
+				}
+			}
+		}
+		every_military_formation = {
+			limit = { dfn_reviewable_fleet = yes }
+			remove_variable = dfn_reviewed
+		}
+	}
+	ordered_military_formation = {
+		limit = {
+			dfn_reviewable_fleet = yes
+			NOT = { has_variable = dfn_reviewed }
+		}
+		order_by = { value = var:dfn_fleet_number multiply = -1 }
+		max = 1
+		check_range_bounds = no
+		set_variable = dfn_reviewed
+		save_scope_as = dfn_fleet
+		save_scope_value_as = { name = dfn_number value = var:dfn_fleet_number }
+		if = {
+			limit = { exists = home_hq }
+			home_hq = { save_scope_as = dfn_hq }
+		}
+		scope:dfn_registry_country = { trigger_event = dfn_names.1 }
+	}
+}

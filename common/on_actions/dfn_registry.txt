@@ -1,0 +1,11 @@
+on_monthly_pulse_country = {
+	on_actions = { dfn_monthly_registry }
+}
+
+dfn_monthly_registry = {
+	trigger = {
+		is_ai = no
+		has_variable = dfn_registry_enabled
+	}
+	effect = { dfn_register_fleets = yes }
+}

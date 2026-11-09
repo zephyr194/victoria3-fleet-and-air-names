@@ -1,0 +1,114 @@
+namespace = dfn_names
+
+dfn_names.1 = {
+	type = country_event
+	title = dfn_names.1.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					this = c:GBR
+					has_law = law_type:law_monarchy
+					is_at_war = yes
+					game_date >= 1914.1.1
+					exists = scope:dfn_hq
+					scope:dfn_hq.region = sr:region_england
+					scope:dfn_number = 1
+				}
+				desc = dfn_names.1.grand
+			}
+			triggered_desc = {
+				trigger = {
+					this = c:JAP
+					game_date >= 1894.1.1
+					OR = { is_at_war = yes game_date >= 1923.1.1 }
+					scope:dfn_number = 1
+				}
+				desc = dfn_names.1.combined
+			}
+			triggered_desc = {
+				trigger = {
+					this = c:CHI
+					has_law = law_type:law_monarchy
+					game_date >= 1888.1.1
+					exists = scope:dfn_hq
+					scope:dfn_hq.region = sr:region_north_china
+					scope:dfn_number = 1
+				}
+				desc = dfn_names.1.beiyang
+			}
+			triggered_desc = {
+				trigger = { this = c:GBR has_law = law_type:law_monarchy exists = scope:dfn_hq }
+				desc = dfn_names.1.royal_hq
+			}
+			triggered_desc = {
+				trigger = { this = c:GBR has_law = law_type:law_monarchy }
+				desc = dfn_names.1.royal
+			}
+			triggered_desc = {
+				trigger = { this = c:JAP exists = scope:dfn_hq }
+				desc = dfn_names.1.japan_hq
+			}
+			triggered_desc = {
+				trigger = { this = c:JAP }
+				desc = dfn_names.1.japan
+			}
+			triggered_desc = {
+				trigger = { exists = scope:dfn_hq }
+				desc = dfn_names.1.hq
+			}
+			desc = dfn_names.1.generic
+		}
+	}
+	flavor = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = scope:dfn_fleet
+					scope:dfn_fleet = {
+						has_naval_mission_in_region = {
+							type = naval_mission_type_protect_supply
+							region = sr:region_bay_of_bengal
+						}
+					}
+				}
+				desc = dfn_names.1.bengal
+			}
+			triggered_desc = {
+				trigger = { is_at_war = yes }
+				desc = dfn_names.1.wartime
+			}
+			desc = dfn_names.1.peace
+		}
+	}
+	option = { name = dfn_names.close default_option = yes }
+	option = {
+		name = dfn_names.lock
+		trigger = { exists = scope:dfn_fleet scope:dfn_fleet.owner = root }
+		scope:dfn_fleet = { set_variable = dfn_locked }
+	}
+}
+
+dfn_names.2 = {
+	type = country_event
+	title = dfn_names.2.t
+	immediate = {
+		save_scope_value_as = { name = dfn_number value = var:dfn_air_cursor }
+		capital = { save_scope_as = dfn_air_hq }
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					this = c:GBR
+					has_law = law_type:law_monarchy
+					game_date >= 1918.4.1
+				}
+				desc = dfn_names.2.royal
+			}
+			desc = dfn_names.2.generic
+		}
+	}
+	flavor = dfn_names.2.f
+	option = { name = dfn_names.close default_option = yes }
+}
