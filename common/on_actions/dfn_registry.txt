@@ -1,5 +1,5 @@
 on_monthly_pulse_country = {
-	on_actions = { dfn_monthly_registry }
+	on_actions = { dfn_monthly_registry dfn_monthly_army_registry }
 }
 
 dfn_monthly_registry = {
@@ -8,4 +8,12 @@ dfn_monthly_registry = {
 		has_variable = dfn_registry_enabled
 	}
 	effect = { dfn_register_fleets = yes }
+}
+
+dfn_monthly_army_registry = {
+	trigger = {
+		is_ai = no
+		has_variable = dfn_army_registry_enabled
+	}
+	effect = { dfn_register_armies = yes }
 }

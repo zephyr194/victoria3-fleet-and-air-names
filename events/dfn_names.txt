@@ -63,9 +63,132 @@ dfn_names.1 = {
 	flavor = {
 		first_valid = {
 			triggered_desc = {
+				trigger = { scope:dfn_composition = 0 }
+				desc = dfn_profile_fleet_0
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_composition = 7 }
+				desc = dfn_profile_fleet_7
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_composition = 8 }
+				desc = dfn_profile_fleet_8
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_composition = 9 }
+				desc = dfn_profile_fleet_9
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_composition = 10 }
+				desc = dfn_profile_fleet_10
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_composition = 6 }
+				desc = dfn_profile_fleet_6
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_capital_ships_models percent >= 0.6 is_ship_type = ship_type:ship_type_ship_of_the_line } }
+				desc = dfn_model_ship_type_ship_of_the_line
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_capital_ships_models percent >= 0.6 is_ship_type = ship_type:ship_type_monitor } }
+				desc = dfn_model_ship_type_monitor
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_capital_ships_models percent >= 0.6 is_ship_type = ship_type:ship_type_early_ironclad } }
+				desc = dfn_model_ship_type_early_ironclad
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_capital_ships_models percent >= 0.6 is_ship_type = ship_type:ship_type_coastal_defense_ship } }
+				desc = dfn_model_ship_type_coastal_defense_ship
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_capital_ships_models percent >= 0.6 is_ship_type = ship_type:ship_type_modern_ironclad } }
+				desc = dfn_model_ship_type_modern_ironclad
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_capital_ships_models percent >= 0.6 is_ship_type = ship_type:ship_type_pre_dreadnought } }
+				desc = dfn_model_ship_type_pre_dreadnought
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_capital_ships_models percent >= 0.6 is_ship_type = ship_type:ship_type_dreadnought } }
+				desc = dfn_model_ship_type_dreadnought
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_capital_ships_models percent >= 0.6 is_ship_type = ship_type:ship_type_super_dreadnought } }
+				desc = dfn_model_ship_type_super_dreadnought
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cruisers_models percent >= 0.6 is_ship_type = ship_type:ship_type_frigate } }
+				desc = dfn_model_ship_type_frigate
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cruisers_models percent >= 0.6 is_ship_type = ship_type:ship_type_iron_frigate } }
+				desc = dfn_model_ship_type_iron_frigate
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cruisers_models percent >= 0.6 is_ship_type = ship_type:ship_type_early_troop_ship } }
+				desc = dfn_model_ship_type_early_troop_ship
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cruisers_models percent >= 0.6 is_ship_type = ship_type:ship_type_troop_ship } }
+				desc = dfn_model_ship_type_troop_ship
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cruisers_models percent >= 0.6 is_ship_type = ship_type:ship_type_protected_cruiser } }
+				desc = dfn_model_ship_type_protected_cruiser
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cruisers_models percent >= 0.6 is_ship_type = ship_type:ship_type_armored_cruiser } }
+				desc = dfn_model_ship_type_armored_cruiser
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cruisers_models percent >= 0.6 is_ship_type = ship_type:ship_type_light_cruiser } }
+				desc = dfn_model_ship_type_light_cruiser
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cruisers_models percent >= 0.6 is_ship_type = ship_type:ship_type_seaplane_tender } }
+				desc = dfn_model_ship_type_seaplane_tender
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cruisers_models percent >= 0.6 is_ship_type = ship_type:ship_type_aircraft_carrier } }
+				desc = dfn_model_ship_type_aircraft_carrier
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_torpedo_craft_models percent >= 0.6 is_ship_type = ship_type:ship_type_torpedo_boat } }
+				desc = dfn_model_ship_type_torpedo_boat
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_torpedo_craft_models percent >= 0.6 is_ship_type = ship_type:ship_type_torpedo_boat_destroyer } }
+				desc = dfn_model_ship_type_torpedo_boat_destroyer
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_torpedo_craft_models percent >= 0.6 is_ship_type = ship_type:ship_type_submarine } }
+				desc = dfn_model_ship_type_submarine
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_torpedo_craft_models percent >= 0.6 is_ship_type = ship_type:ship_type_destroyer } }
+				desc = dfn_model_ship_type_destroyer
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_supply_ships_models percent >= 0.6 is_ship_type = ship_type:ship_type_supply_ship } }
+				desc = dfn_model_ship_type_supply_ship
+			}
+		}
+		desc = dfn_fleet_supply_ships
+		first_valid = {
+			triggered_desc = {
 				trigger = {
-					exists = scope:dfn_fleet
-					scope:dfn_fleet = {
+					exists = scope:dfn_formation
+					scope:dfn_formation = {
 						has_naval_mission_in_region = {
 							type = naval_mission_type_protect_supply
 							region = sr:region_bay_of_bengal
@@ -84,8 +207,8 @@ dfn_names.1 = {
 	option = { name = dfn_names.close default_option = yes }
 	option = {
 		name = dfn_names.lock
-		trigger = { exists = scope:dfn_fleet scope:dfn_fleet.owner = root }
-		scope:dfn_fleet = { set_variable = dfn_locked }
+		trigger = { exists = scope:dfn_formation scope:dfn_formation.owner = root }
+		scope:dfn_formation = { set_variable = dfn_locked }
 	}
 }
 
@@ -111,4 +234,269 @@ dfn_names.2 = {
 	}
 	flavor = dfn_names.2.f
 	option = { name = dfn_names.close default_option = yes }
+}
+
+dfn_names.3 = {
+	type = country_event
+	title = dfn_names.3.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { this = c:JAP exists = scope:dfn_origin }
+				desc = dfn_army_base_0_origin
+			}
+			triggered_desc = {
+				trigger = { this = c:JAP exists = scope:dfn_hq }
+				desc = dfn_army_base_0_hq
+			}
+			triggered_desc = {
+				trigger = { this = c:JAP }
+				desc = dfn_army_base_0_plain
+			}
+			triggered_desc = {
+				trigger = { OR = { this = c:GER this = c:PRU } exists = scope:dfn_origin }
+				desc = dfn_army_base_1_origin
+			}
+			triggered_desc = {
+				trigger = { OR = { this = c:GER this = c:PRU } exists = scope:dfn_hq }
+				desc = dfn_army_base_1_hq
+			}
+			triggered_desc = {
+				trigger = { OR = { this = c:GER this = c:PRU } }
+				desc = dfn_army_base_1_plain
+			}
+			triggered_desc = {
+				trigger = { this = c:FRA exists = scope:dfn_origin }
+				desc = dfn_army_base_2_origin
+			}
+			triggered_desc = {
+				trigger = { this = c:FRA exists = scope:dfn_hq }
+				desc = dfn_army_base_2_hq
+			}
+			triggered_desc = {
+				trigger = { this = c:FRA }
+				desc = dfn_army_base_2_plain
+			}
+			triggered_desc = {
+				trigger = { this = c:USA exists = scope:dfn_origin }
+				desc = dfn_army_base_3_origin
+			}
+			triggered_desc = {
+				trigger = { this = c:USA exists = scope:dfn_hq }
+				desc = dfn_army_base_3_hq
+			}
+			triggered_desc = {
+				trigger = { this = c:USA }
+				desc = dfn_army_base_3_plain
+			}
+			triggered_desc = {
+				trigger = { this = c:GBR exists = scope:dfn_origin }
+				desc = dfn_army_base_4_origin
+			}
+			triggered_desc = {
+				trigger = { this = c:GBR exists = scope:dfn_hq }
+				desc = dfn_army_base_4_hq
+			}
+			triggered_desc = {
+				trigger = { this = c:GBR }
+				desc = dfn_army_base_4_plain
+			}
+			triggered_desc = {
+				trigger = { this = c:CHI exists = scope:dfn_origin }
+				desc = dfn_army_base_5_origin
+			}
+			triggered_desc = {
+				trigger = { this = c:CHI exists = scope:dfn_hq }
+				desc = dfn_army_base_5_hq
+			}
+			triggered_desc = {
+				trigger = { this = c:CHI }
+				desc = dfn_army_base_5_plain
+			}
+			triggered_desc = {
+				trigger = { exists = scope:dfn_origin }
+				desc = dfn_army_base_6_origin
+			}
+			triggered_desc = {
+				trigger = { exists = scope:dfn_hq }
+				desc = dfn_army_base_6_hq
+			}
+			desc = dfn_army_base_6_plain
+		}
+	}
+	flavor = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:dfn_size = 0 }
+				desc = dfn_deploy_preparing
+			}
+			triggered_desc = {
+				trigger = { exists = scope:dfn_current_front }
+				desc = dfn_deploy_front
+			}
+			triggered_desc = {
+				trigger = { exists = scope:dfn_commander_front }
+				desc = dfn_deploy_commander
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_formation = { is_mobilized = yes } }
+				desc = dfn_deploy_mobilized
+			}
+			triggered_desc = {
+				trigger = { exists = scope:dfn_hq }
+				desc = dfn_deploy_hq
+			}
+			desc = dfn_deploy_idle
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:dfn_composition = 0 }
+				desc = dfn_profile_army_0
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_composition = 1 }
+				desc = dfn_profile_army_1
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_composition = 2 }
+				desc = dfn_profile_army_2
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_composition = 3 }
+				desc = dfn_profile_army_3
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_composition = 4 }
+				desc = dfn_profile_army_4
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_composition = 5 }
+				desc = dfn_profile_army_5
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_composition = 6 }
+				desc = dfn_profile_army_6
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_infantry_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_irregular_infantry } }
+				desc = dfn_model_combat_unit_type_irregular_infantry
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_infantry_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_line_infantry } }
+				desc = dfn_model_combat_unit_type_line_infantry
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_infantry_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_skirmish_infantry } }
+				desc = dfn_model_combat_unit_type_skirmish_infantry
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_infantry_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_trench_infantry } }
+				desc = dfn_model_combat_unit_type_trench_infantry
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_infantry_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_squad_infantry } }
+				desc = dfn_model_combat_unit_type_squad_infantry
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_infantry_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_mechanized_infantry } }
+				desc = dfn_model_combat_unit_type_mechanized_infantry
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_artillery_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_cannon_artillery } }
+				desc = dfn_model_combat_unit_type_cannon_artillery
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_artillery_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_mobile_artillery } }
+				desc = dfn_model_combat_unit_type_mobile_artillery
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_artillery_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_shrapnel_artillery } }
+				desc = dfn_model_combat_unit_type_shrapnel_artillery
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_artillery_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_siege_artillery } }
+				desc = dfn_model_combat_unit_type_siege_artillery
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_artillery_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_heavy_tank } }
+				desc = dfn_model_combat_unit_type_heavy_tank
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cavalry_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_hussars } }
+				desc = dfn_model_combat_unit_type_hussars
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cavalry_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_dragoons } }
+				desc = dfn_model_combat_unit_type_dragoons
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cavalry_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_cuirassiers } }
+				desc = dfn_model_combat_unit_type_cuirassiers
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cavalry_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_lancers } }
+				desc = dfn_model_combat_unit_type_lancers
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_cavalry_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_light_tanks } }
+				desc = dfn_model_combat_unit_type_light_tanks
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_marines_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_low_tier_marines } }
+				desc = dfn_model_combat_unit_type_low_tier_marines
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_marines_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_mid_tier_marines } }
+				desc = dfn_model_combat_unit_type_mid_tier_marines
+			}
+			triggered_desc = {
+				trigger = { any_in_list = { list = dfn_marines_models percent >= 0.6 has_unit_type = unit_type:combat_unit_type_high_tier_marines } }
+				desc = dfn_model_combat_unit_type_high_tier_marines
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:dfn_formation = { has_mobilization_option = mobilization_option:mobilization_option_luxurious_supplies } scope:dfn_size > 0 }
+				desc = dfn_option_luxurious_supplies
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_formation = { has_mobilization_option = mobilization_option:mobilization_option_extra_supplies } scope:dfn_size > 0 }
+				desc = dfn_option_extra_supplies
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_formation = { has_mobilization_option = mobilization_option:mobilization_option_basic_supplies } scope:dfn_size > 0 }
+				desc = dfn_option_basic_supplies
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:dfn_formation = { has_mobilization_option = mobilization_option:mobilization_option_truck_transport } scope:dfn_size > 0 }
+				desc = dfn_option_truck_transport
+			}
+			triggered_desc = {
+				trigger = { scope:dfn_formation = { has_mobilization_option = mobilization_option:mobilization_option_rail_transport } scope:dfn_size > 0 }
+				desc = dfn_option_rail_transport
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { supply_network_strength < 0.8 }
+				desc = dfn_network_weak
+			}
+		}
+	}
+	option = { name = dfn_names.close default_option = yes }
+	option = {
+		name = dfn_names.lock_army
+		trigger = { exists = scope:dfn_formation scope:dfn_formation.owner = root }
+		scope:dfn_formation = { set_variable = dfn_locked }
+	}
 }

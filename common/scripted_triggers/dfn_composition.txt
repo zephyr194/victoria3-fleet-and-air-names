@@ -1,0 +1,39 @@
+# Categories follow the 1.15.0 combat-unit definitions. Unmapped units count toward the total.
+dfn_unit_infantry = {
+	OR = {
+		has_unit_type = unit_type:combat_unit_type_irregular_infantry
+		has_unit_type = unit_type:combat_unit_type_line_infantry
+		has_unit_type = unit_type:combat_unit_type_skirmish_infantry
+		has_unit_type = unit_type:combat_unit_type_trench_infantry
+		has_unit_type = unit_type:combat_unit_type_squad_infantry
+		has_unit_type = unit_type:combat_unit_type_mechanized_infantry
+	}
+}
+
+dfn_unit_artillery = {
+	OR = {
+		has_unit_type = unit_type:combat_unit_type_cannon_artillery
+		has_unit_type = unit_type:combat_unit_type_mobile_artillery
+		has_unit_type = unit_type:combat_unit_type_shrapnel_artillery
+		has_unit_type = unit_type:combat_unit_type_siege_artillery
+		has_unit_type = unit_type:combat_unit_type_heavy_tank
+	}
+}
+
+dfn_unit_cavalry = {
+	OR = {
+		has_unit_type = unit_type:combat_unit_type_hussars
+		has_unit_type = unit_type:combat_unit_type_dragoons
+		has_unit_type = unit_type:combat_unit_type_cuirassiers
+		has_unit_type = unit_type:combat_unit_type_lancers
+		has_unit_type = unit_type:combat_unit_type_light_tanks
+	}
+}
+
+dfn_unit_marines = {
+	OR = {
+		has_unit_type = unit_type:combat_unit_type_low_tier_marines
+		has_unit_type = unit_type:combat_unit_type_mid_tier_marines
+		has_unit_type = unit_type:combat_unit_type_high_tier_marines
+	}
+}

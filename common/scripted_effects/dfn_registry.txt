@@ -1,61 +1,86 @@
-# Country scope. Registration also runs before opening the review, so new fleets
-# can receive a number without waiting for the next monthly pulse.
-dfn_register_fleets = {
+# Country scope. Army and fleet registrations have independent counters.
+dfn_register_formation_branch = {
 	save_scope_as = dfn_registry_country
 	if = {
-		limit = { NOT = { has_variable = dfn_next_fleet } }
-		set_variable = { name = dfn_next_fleet value = 1 }
+		limit = { NOT = { has_variable = $NEXT$ } }
+		set_variable = { name = $NEXT$ value = 1 }
 	}
 	every_military_formation = {
-		limit = { is_fleet = yes owner = scope:dfn_registry_country }
+		limit = { $KIND$ = yes owner = scope:dfn_registry_country }
 		if = {
 			limit = {
 				OR = {
-					NOT = { has_variable = dfn_fleet_number }
+					NOT = { has_variable = $NUMBER$ }
 					NOT = { var:dfn_registered_owner = scope:dfn_registry_country }
 				}
 			}
-			set_variable = { name = dfn_fleet_number value = scope:dfn_registry_country.var:dfn_next_fleet }
+			set_variable = { name = $NUMBER$ value = scope:dfn_registry_country.var:$NEXT$ }
 			set_variable = { name = dfn_registered_owner value = scope:dfn_registry_country }
+			remove_variable = dfn_recruitment_origin
 			remove_variable = dfn_reviewed
 			scope:dfn_registry_country = {
-				change_variable = { name = dfn_next_fleet add = 1 }
+				change_variable = { name = $NEXT$ add = 1 }
 			}
 		}
 	}
 }
 
-dfn_review_fleet = {
-	dfn_register_fleets = yes
+dfn_review_formation_branch = {
+	dfn_register_formation_branch = { KIND = $KIND$ NUMBER = $NUMBER$ NEXT = $NEXT$ }
 	if = {
 		limit = {
 			NOT = {
 				any_military_formation = {
-					dfn_reviewable_fleet = yes
+					dfn_reviewable_formation = { KIND = $KIND$ NUMBER = $NUMBER$ }
 					NOT = { has_variable = dfn_reviewed }
 				}
 			}
 		}
 		every_military_formation = {
-			limit = { dfn_reviewable_fleet = yes }
+			limit = { dfn_reviewable_formation = { KIND = $KIND$ NUMBER = $NUMBER$ } }
 			remove_variable = dfn_reviewed
 		}
 	}
 	ordered_military_formation = {
 		limit = {
-			dfn_reviewable_fleet = yes
+			dfn_reviewable_formation = { KIND = $KIND$ NUMBER = $NUMBER$ }
 			NOT = { has_variable = dfn_reviewed }
 		}
-		order_by = { value = var:dfn_fleet_number multiply = -1 }
+		order_by = { value = var:$NUMBER$ multiply = -1 }
 		max = 1
 		check_range_bounds = no
 		set_variable = dfn_reviewed
-		save_scope_as = dfn_fleet
-		save_scope_value_as = { name = dfn_number value = var:dfn_fleet_number }
+		save_scope_as = dfn_formation
+		save_scope_value_as = { name = dfn_number value = var:$NUMBER$ }
 		if = {
 			limit = { exists = home_hq }
 			home_hq = { save_scope_as = dfn_hq }
 		}
-		scope:dfn_registry_country = { trigger_event = dfn_names.1 }
+		$SNAPSHOT$ = yes
+		scope:dfn_registry_country = { trigger_event = $EVENT$ }
+	}
+}
+
+dfn_register_fleets = {
+	dfn_register_formation_branch = { KIND = is_fleet NUMBER = dfn_fleet_number NEXT = dfn_next_fleet }
+}
+
+dfn_review_fleet = {
+	dfn_review_formation_branch = {
+		KIND = is_fleet NUMBER = dfn_fleet_number NEXT = dfn_next_fleet
+		SNAPSHOT = dfn_snapshot_fleet
+		EVENT = dfn_names.1
+	}
+}
+
+dfn_register_armies = {
+	dfn_register_formation_branch = { KIND = is_army NUMBER = dfn_army_number NEXT = dfn_next_army }
+}
+
+dfn_review_army = {
+	dfn_review_formation_branch = {
+		KIND = is_army NUMBER = dfn_army_number NEXT = dfn_next_army
+		SNAPSHOT = dfn_snapshot_army
+		EVENT = dfn_names.3
 	}
 }

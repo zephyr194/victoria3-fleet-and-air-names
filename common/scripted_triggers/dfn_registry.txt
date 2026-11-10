@@ -1,7 +1,7 @@
 # Requires dfn_registry_country in the current effect chain.
-dfn_reviewable_fleet = {
-	is_fleet = yes
+dfn_reviewable_formation = {
+	$KIND$ = yes
 	owner = scope:dfn_registry_country
-	has_variable = dfn_fleet_number
+	has_variable = $NUMBER$
 	NOT = { has_variable = dfn_locked }
 }

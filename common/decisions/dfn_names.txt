@@ -70,3 +70,44 @@ dfn_review_air_names = {
 	}
 	ai_chance = { base = 0 }
 }
+
+dfn_review_army_names = {
+	is_shown = { is_ai = no }
+	possible = {
+		save_temporary_scope_as = dfn_decision_country
+		any_military_formation = {
+			is_army = yes
+			owner = scope:dfn_decision_country
+			NOT = { has_variable = dfn_locked }
+		}
+	}
+	when_taken = {
+		set_variable = dfn_army_registry_enabled
+		dfn_review_army = yes
+	}
+	ai_chance = { base = 0 }
+}
+
+dfn_unlock_army_names = {
+	is_shown = {
+		is_ai = no
+		has_variable = dfn_army_registry_enabled
+	}
+	possible = {
+		save_temporary_scope_as = dfn_decision_country
+		any_military_formation = {
+			is_army = yes
+			owner = scope:dfn_decision_country
+			has_variable = dfn_locked
+		}
+	}
+	when_taken = {
+		save_scope_as = dfn_registry_country
+		every_military_formation = {
+			limit = { is_army = yes owner = scope:dfn_registry_country }
+			remove_variable = dfn_locked
+			remove_variable = dfn_reviewed
+		}
+	}
+	ai_chance = { base = 0 }
+}

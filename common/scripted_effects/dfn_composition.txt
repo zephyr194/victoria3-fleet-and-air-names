@@ -1,0 +1,184 @@
+# Composition is sampled when reviewing a formation. A changed nonempty
+# classification requires a second matching observation at least 14 days later.
+dfn_stabilize_composition = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { has_variable = dfn_stable_composition }
+				var:dfn_stable_composition = 0
+				scope:dfn_candidate = 0
+			}
+		}
+		set_variable = { name = dfn_stable_composition value = scope:dfn_candidate }
+		remove_variable = dfn_pending_composition
+		remove_variable = dfn_composition_wait
+	}
+	else_if = {
+		limit = { var:dfn_stable_composition = scope:dfn_candidate }
+		remove_variable = dfn_pending_composition
+		remove_variable = dfn_composition_wait
+	}
+	else_if = {
+		limit = {
+			has_variable = dfn_pending_composition
+			var:dfn_pending_composition = scope:dfn_candidate
+		}
+		if = {
+			limit = { NOT = { has_variable = dfn_composition_wait } }
+			set_variable = { name = dfn_stable_composition value = scope:dfn_candidate }
+			remove_variable = dfn_pending_composition
+		}
+	}
+	else = {
+		set_variable = { name = dfn_pending_composition value = scope:dfn_candidate }
+		set_variable = { name = dfn_composition_wait value = yes days = 14 }
+	}
+	save_scope_value_as = { name = dfn_composition value = var:dfn_stable_composition }
+}
+
+dfn_snapshot_fleet = {
+	save_scope_value_as = { name = dfn_size value = num_ships }
+	save_scope_value_as = { name = dfn_supply_ships value = num_assigned_supply_ships }
+	if = {
+		limit = { num_ships = 0 }
+		save_temporary_scope_value_as = { name = dfn_candidate value = 0 }
+	}
+	else_if = {
+		limit = { any_scope_ship = { percent >= 0.6 ship_group = ship_group:ship_group_capital_ships } }
+		save_temporary_scope_value_as = { name = dfn_candidate value = 7 }
+	}
+	else_if = {
+		limit = { any_scope_ship = { percent >= 0.6 ship_group = ship_group:ship_group_cruisers } }
+		save_temporary_scope_value_as = { name = dfn_candidate value = 8 }
+	}
+	else_if = {
+		limit = { any_scope_ship = { percent >= 0.6 ship_group = ship_group:ship_group_torpedo_craft } }
+		save_temporary_scope_value_as = { name = dfn_candidate value = 9 }
+	}
+	else_if = {
+		limit = { any_scope_ship = { percent >= 0.6 ship_group = ship_group:ship_group_supply_ships } }
+		save_temporary_scope_value_as = { name = dfn_candidate value = 10 }
+	}
+	else = { save_temporary_scope_value_as = { name = dfn_candidate value = 6 } }
+	dfn_stabilize_composition = yes
+	every_scope_ship = {
+		if = {
+			limit = { ship_group = ship_group:ship_group_capital_ships }
+			add_to_list = dfn_capital_ships_models
+		}
+		else_if = {
+			limit = { ship_group = ship_group:ship_group_cruisers }
+			add_to_list = dfn_cruisers_models
+		}
+		else_if = {
+			limit = { ship_group = ship_group:ship_group_torpedo_craft }
+			add_to_list = dfn_torpedo_craft_models
+		}
+		else_if = {
+			limit = { ship_group = ship_group:ship_group_supply_ships }
+			add_to_list = dfn_supply_ships_models
+		}
+	}
+}
+
+dfn_snapshot_army = {
+	save_scope_value_as = { name = dfn_size value = num_units }
+	if = {
+		limit = { num_units = 0 }
+		save_temporary_scope_value_as = { name = dfn_candidate value = 0 }
+	}
+	else_if = {
+		limit = { num_units >= 4 any_combat_unit = { percent >= 0.5 dfn_unit_marines = yes } }
+		save_temporary_scope_value_as = { name = dfn_candidate value = 1 }
+	}
+	else_if = {
+		limit = { any_combat_unit = { percent >= 0.4 dfn_unit_infantry = yes } any_combat_unit = { percent >= 0.25 dfn_unit_artillery = yes } }
+		save_temporary_scope_value_as = { name = dfn_candidate value = 2 }
+	}
+	else_if = {
+		limit = { any_combat_unit = { percent >= 0.6 dfn_unit_infantry = yes } }
+		save_temporary_scope_value_as = { name = dfn_candidate value = 3 }
+	}
+	else_if = {
+		limit = { any_combat_unit = { percent >= 0.6 dfn_unit_artillery = yes } }
+		save_temporary_scope_value_as = { name = dfn_candidate value = 4 }
+	}
+	else_if = {
+		limit = { any_combat_unit = { percent >= 0.6 dfn_unit_cavalry = yes } }
+		save_temporary_scope_value_as = { name = dfn_candidate value = 5 }
+	}
+	else = { save_temporary_scope_value_as = { name = dfn_candidate value = 6 } }
+	dfn_stabilize_composition = yes
+	every_combat_unit = {
+		if = {
+			limit = { dfn_unit_infantry = yes }
+			add_to_list = dfn_infantry_models
+		}
+		else_if = {
+			limit = { dfn_unit_artillery = yes }
+			add_to_list = dfn_artillery_models
+		}
+		else_if = {
+			limit = { dfn_unit_cavalry = yes }
+			add_to_list = dfn_cavalry_models
+		}
+		else_if = {
+			limit = { dfn_unit_marines = yes }
+			add_to_list = dfn_marines_models
+		}
+	}
+	if = {
+		limit = { is_mobilized = yes }
+		if = {
+			limit = { exists = front }
+			front = { save_scope_as = dfn_current_front }
+		}
+		else_if = {
+			limit = { exists = commander.front }
+			commander.front = { save_scope_as = dfn_commander_front }
+		}
+	}
+	else = {
+		remove_variable = dfn_recruitment_origin
+		if = {
+			limit = { num_units > 0 }
+			dfn_find_recruitment_origin = yes
+		}
+	}
+	if = {
+		limit = { exists = var:dfn_recruitment_origin }
+		var:dfn_recruitment_origin = { save_scope_as = dfn_origin }
+	}
+}
+
+# Only investigate each distinct recruitment state once. Unknown origins remain
+# in the denominator, so partial data cannot inflate a state's share.
+dfn_find_recruitment_origin = {
+	every_combat_unit = {
+		limit = { exists = building.state }
+		if = {
+			limit = {
+				scope:dfn_formation = { NOT = { has_variable = dfn_recruitment_origin } }
+				building.state = { NOT = { is_in_list = dfn_checked_origins } }
+			}
+			building.state = {
+				add_to_list = dfn_checked_origins
+				save_temporary_scope_as = dfn_candidate_origin
+			}
+			if = {
+				limit = {
+					scope:dfn_formation = {
+						any_combat_unit = {
+							percent >= 0.6
+							exists = building.state
+							building.state = scope:dfn_candidate_origin
+						}
+					}
+				}
+				scope:dfn_formation = {
+					set_variable = { name = dfn_recruitment_origin value = scope:dfn_candidate_origin }
+				}
+			}
+		}
+	}
+}
