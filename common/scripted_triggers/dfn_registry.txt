@@ -1,7 +1,9 @@
-# Requires dfn_registry_country in the current effect chain.
-dfn_reviewable_formation = {
+# Evaluate on a formation, with the reviewing country saved by the caller.
+dfn_available_formation = {
 	$KIND$ = yes
 	owner = scope:dfn_registry_country
-	has_variable = $NUMBER$
-	NOT = { has_variable = dfn_locked }
+	save_temporary_scope_as = dfn_lock_entry
+	scope:dfn_registry_country = {
+		NOT = { is_target_in_variable_list = { name = $LOCKS$ target = scope:dfn_lock_entry } }
+	}
 }

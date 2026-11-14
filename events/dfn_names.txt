@@ -208,7 +208,7 @@ dfn_names.1 = {
 	option = {
 		name = dfn_names.lock
 		trigger = { exists = scope:dfn_formation scope:dfn_formation.owner = root }
-		scope:dfn_formation = { set_variable = dfn_locked }
+		add_to_variable_list = { name = dfn_fleet_locks target = scope:dfn_formation }
 	}
 }
 
@@ -497,6 +497,6 @@ dfn_names.3 = {
 	option = {
 		name = dfn_names.lock_army
 		trigger = { exists = scope:dfn_formation scope:dfn_formation.owner = root }
-		scope:dfn_formation = { set_variable = dfn_locked }
+		add_to_variable_list = { name = dfn_army_locks target = scope:dfn_formation }
 	}
 }

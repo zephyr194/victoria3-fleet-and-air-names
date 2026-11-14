@@ -4,36 +4,36 @@ dfn_stabilize_composition = {
 	if = {
 		limit = {
 			OR = {
-				NOT = { has_variable = dfn_stable_composition }
-				var:dfn_stable_composition = 0
+				NOT = { exists = variable_map(dfn_stable_compositions|scope:dfn_formation) }
+				variable_map(dfn_stable_compositions|scope:dfn_formation) = 0
 				scope:dfn_candidate = 0
 			}
 		}
-		set_variable = { name = dfn_stable_composition value = scope:dfn_candidate }
-		remove_variable = dfn_pending_composition
-		remove_variable = dfn_composition_wait
+		add_to_variable_map = { name = dfn_stable_compositions key = scope:dfn_formation value = scope:dfn_candidate }
+		remove_from_variable_map = { name = dfn_pending_compositions key = scope:dfn_formation }
+		remove_from_variable_map = { name = dfn_composition_waits key = scope:dfn_formation }
 	}
 	else_if = {
-		limit = { var:dfn_stable_composition = scope:dfn_candidate }
-		remove_variable = dfn_pending_composition
-		remove_variable = dfn_composition_wait
+		limit = { variable_map(dfn_stable_compositions|scope:dfn_formation) = scope:dfn_candidate }
+		remove_from_variable_map = { name = dfn_pending_compositions key = scope:dfn_formation }
+		remove_from_variable_map = { name = dfn_composition_waits key = scope:dfn_formation }
 	}
 	else_if = {
 		limit = {
-			has_variable = dfn_pending_composition
-			var:dfn_pending_composition = scope:dfn_candidate
+			exists = variable_map(dfn_pending_compositions|scope:dfn_formation)
+			variable_map(dfn_pending_compositions|scope:dfn_formation) = scope:dfn_candidate
 		}
 		if = {
-			limit = { NOT = { has_variable = dfn_composition_wait } }
-			set_variable = { name = dfn_stable_composition value = scope:dfn_candidate }
-			remove_variable = dfn_pending_composition
+			limit = { NOT = { exists = variable_map(dfn_composition_waits|scope:dfn_formation) } }
+			add_to_variable_map = { name = dfn_stable_compositions key = scope:dfn_formation value = scope:dfn_candidate }
+			remove_from_variable_map = { name = dfn_pending_compositions key = scope:dfn_formation }
 		}
 	}
 	else = {
-		set_variable = { name = dfn_pending_composition value = scope:dfn_candidate }
-		set_variable = { name = dfn_composition_wait value = yes days = 14 }
+		add_to_variable_map = { name = dfn_pending_compositions key = scope:dfn_formation value = scope:dfn_candidate }
+		add_to_variable_map = { name = dfn_composition_waits key = scope:dfn_formation value = yes days = 14 }
 	}
-	save_scope_value_as = { name = dfn_composition value = var:dfn_stable_composition }
+	save_scope_value_as = { name = dfn_composition value = variable_map(dfn_stable_compositions|scope:dfn_formation) }
 }
 
 dfn_snapshot_fleet = {
@@ -41,26 +41,26 @@ dfn_snapshot_fleet = {
 	save_scope_value_as = { name = dfn_supply_ships value = num_assigned_supply_ships }
 	if = {
 		limit = { num_ships = 0 }
-		save_temporary_scope_value_as = { name = dfn_candidate value = 0 }
+		save_scope_value_as = { name = dfn_candidate value = 0 }
 	}
 	else_if = {
 		limit = { any_scope_ship = { percent >= 0.6 ship_group = ship_group:ship_group_capital_ships } }
-		save_temporary_scope_value_as = { name = dfn_candidate value = 7 }
+		save_scope_value_as = { name = dfn_candidate value = 7 }
 	}
 	else_if = {
 		limit = { any_scope_ship = { percent >= 0.6 ship_group = ship_group:ship_group_cruisers } }
-		save_temporary_scope_value_as = { name = dfn_candidate value = 8 }
+		save_scope_value_as = { name = dfn_candidate value = 8 }
 	}
 	else_if = {
 		limit = { any_scope_ship = { percent >= 0.6 ship_group = ship_group:ship_group_torpedo_craft } }
-		save_temporary_scope_value_as = { name = dfn_candidate value = 9 }
+		save_scope_value_as = { name = dfn_candidate value = 9 }
 	}
 	else_if = {
 		limit = { any_scope_ship = { percent >= 0.6 ship_group = ship_group:ship_group_supply_ships } }
-		save_temporary_scope_value_as = { name = dfn_candidate value = 10 }
+		save_scope_value_as = { name = dfn_candidate value = 10 }
 	}
-	else = { save_temporary_scope_value_as = { name = dfn_candidate value = 6 } }
-	dfn_stabilize_composition = yes
+	else = { save_scope_value_as = { name = dfn_candidate value = 6 } }
+	scope:dfn_registry_country = { dfn_stabilize_composition = yes }
 	every_scope_ship = {
 		if = {
 			limit = { ship_group = ship_group:ship_group_capital_ships }
@@ -85,30 +85,30 @@ dfn_snapshot_army = {
 	save_scope_value_as = { name = dfn_size value = num_units }
 	if = {
 		limit = { num_units = 0 }
-		save_temporary_scope_value_as = { name = dfn_candidate value = 0 }
+		save_scope_value_as = { name = dfn_candidate value = 0 }
 	}
 	else_if = {
 		limit = { num_units >= 4 any_combat_unit = { percent >= 0.5 dfn_unit_marines = yes } }
-		save_temporary_scope_value_as = { name = dfn_candidate value = 1 }
+		save_scope_value_as = { name = dfn_candidate value = 1 }
 	}
 	else_if = {
 		limit = { any_combat_unit = { percent >= 0.4 dfn_unit_infantry = yes } any_combat_unit = { percent >= 0.25 dfn_unit_artillery = yes } }
-		save_temporary_scope_value_as = { name = dfn_candidate value = 2 }
+		save_scope_value_as = { name = dfn_candidate value = 2 }
 	}
 	else_if = {
 		limit = { any_combat_unit = { percent >= 0.6 dfn_unit_infantry = yes } }
-		save_temporary_scope_value_as = { name = dfn_candidate value = 3 }
+		save_scope_value_as = { name = dfn_candidate value = 3 }
 	}
 	else_if = {
 		limit = { any_combat_unit = { percent >= 0.6 dfn_unit_artillery = yes } }
-		save_temporary_scope_value_as = { name = dfn_candidate value = 4 }
+		save_scope_value_as = { name = dfn_candidate value = 4 }
 	}
 	else_if = {
 		limit = { any_combat_unit = { percent >= 0.6 dfn_unit_cavalry = yes } }
-		save_temporary_scope_value_as = { name = dfn_candidate value = 5 }
+		save_scope_value_as = { name = dfn_candidate value = 5 }
 	}
-	else = { save_temporary_scope_value_as = { name = dfn_candidate value = 6 } }
-	dfn_stabilize_composition = yes
+	else = { save_scope_value_as = { name = dfn_candidate value = 6 } }
+	scope:dfn_registry_country = { dfn_stabilize_composition = yes }
 	every_combat_unit = {
 		if = {
 			limit = { dfn_unit_infantry = yes }
@@ -139,15 +139,19 @@ dfn_snapshot_army = {
 		}
 	}
 	else = {
-		remove_variable = dfn_recruitment_origin
+		scope:dfn_registry_country = {
+			remove_from_variable_map = { name = dfn_recruitment_origins key = scope:dfn_formation }
+		}
 		if = {
 			limit = { num_units > 0 }
 			dfn_find_recruitment_origin = yes
 		}
 	}
-	if = {
-		limit = { exists = var:dfn_recruitment_origin }
-		var:dfn_recruitment_origin = { save_scope_as = dfn_origin }
+	scope:dfn_registry_country = {
+		if = {
+			limit = { exists = variable_map(dfn_recruitment_origins|scope:dfn_formation) }
+			variable_map(dfn_recruitment_origins|scope:dfn_formation) = { save_scope_as = dfn_origin }
+		}
 	}
 }
 
@@ -158,7 +162,9 @@ dfn_find_recruitment_origin = {
 		limit = { exists = building.state }
 		if = {
 			limit = {
-				scope:dfn_formation = { NOT = { has_variable = dfn_recruitment_origin } }
+				scope:dfn_registry_country = {
+					NOT = { exists = variable_map(dfn_recruitment_origins|scope:dfn_formation) }
+				}
 				building.state = { NOT = { is_in_list = dfn_checked_origins } }
 			}
 			building.state = {
@@ -175,8 +181,8 @@ dfn_find_recruitment_origin = {
 						}
 					}
 				}
-				scope:dfn_formation = {
-					set_variable = { name = dfn_recruitment_origin value = scope:dfn_candidate_origin }
+				scope:dfn_registry_country = {
+					add_to_variable_map = { name = dfn_recruitment_origins key = scope:dfn_formation value = scope:dfn_candidate_origin }
 				}
 			}
 		}

@@ -1,11 +1,9 @@
 dfn_review_fleet_names = {
 	is_shown = { is_ai = no }
 	possible = {
-		save_temporary_scope_as = dfn_decision_country
+		save_temporary_scope_as = dfn_registry_country
 		any_military_formation = {
-			is_fleet = yes
-			owner = scope:dfn_decision_country
-			NOT = { has_variable = dfn_locked }
+			dfn_available_formation = { KIND = is_fleet LOCKS = dfn_fleet_locks }
 		}
 	}
 	when_taken = {
@@ -20,21 +18,10 @@ dfn_unlock_fleet_names = {
 		is_ai = no
 		has_variable = dfn_registry_enabled
 	}
-	possible = {
-		save_temporary_scope_as = dfn_decision_country
-		any_military_formation = {
-			is_fleet = yes
-			owner = scope:dfn_decision_country
-			has_variable = dfn_locked
-		}
-	}
+	possible = { has_variable_list = dfn_fleet_locks }
 	when_taken = {
-		save_scope_as = dfn_registry_country
-		every_military_formation = {
-			limit = { is_fleet = yes owner = scope:dfn_registry_country }
-			remove_variable = dfn_locked
-			remove_variable = dfn_reviewed
-		}
+		clear_variable_list = dfn_fleet_locks
+		clear_variable_list = dfn_reviewed_fleets
 	}
 	ai_chance = { base = 0 }
 }
@@ -74,11 +61,9 @@ dfn_review_air_names = {
 dfn_review_army_names = {
 	is_shown = { is_ai = no }
 	possible = {
-		save_temporary_scope_as = dfn_decision_country
+		save_temporary_scope_as = dfn_registry_country
 		any_military_formation = {
-			is_army = yes
-			owner = scope:dfn_decision_country
-			NOT = { has_variable = dfn_locked }
+			dfn_available_formation = { KIND = is_army LOCKS = dfn_army_locks }
 		}
 	}
 	when_taken = {
@@ -93,21 +78,10 @@ dfn_unlock_army_names = {
 		is_ai = no
 		has_variable = dfn_army_registry_enabled
 	}
-	possible = {
-		save_temporary_scope_as = dfn_decision_country
-		any_military_formation = {
-			is_army = yes
-			owner = scope:dfn_decision_country
-			has_variable = dfn_locked
-		}
-	}
+	possible = { has_variable_list = dfn_army_locks }
 	when_taken = {
-		save_scope_as = dfn_registry_country
-		every_military_formation = {
-			limit = { is_army = yes owner = scope:dfn_registry_country }
-			remove_variable = dfn_locked
-			remove_variable = dfn_reviewed
-		}
+		clear_variable_list = dfn_army_locks
+		clear_variable_list = dfn_reviewed_armies
 	}
 	ai_chance = { base = 0 }
 }
