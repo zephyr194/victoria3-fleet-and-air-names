@@ -1,7 +1,7 @@
 {
   "name": "Fleet & Air Names",
   "id": "victoria3-fleet-and-air-names",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "supported_game_version": "1.15.*",
   "short_description": "Dynamic fleet name suggestions and an aviation register."
 }

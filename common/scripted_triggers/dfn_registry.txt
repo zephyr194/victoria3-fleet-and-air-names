@@ -1,9 +1,0 @@
-# Evaluate on a formation, with the reviewing country saved by the caller.
-dfn_available_formation = {
-	$KIND$ = yes
-	owner = scope:dfn_registry_country
-	save_temporary_scope_as = dfn_lock_entry
-	scope:dfn_registry_country = {
-		NOT = { is_target_in_variable_list = { name = $LOCKS$ target = scope:dfn_lock_entry } }
-	}
-}

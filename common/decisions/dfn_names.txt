@@ -1,27 +1,15 @@
 dfn_review_fleet_names = {
 	is_shown = { is_ai = no }
 	possible = {
-		save_temporary_scope_as = dfn_registry_country
-		any_military_formation = {
-			dfn_available_formation = { KIND = is_fleet LOCKS = dfn_fleet_locks }
+		any_military_formation = { is_fleet = yes owner = root }
+	}
+	when_taken = {
+		dfn_review_formation_branch = {
+			KIND = is_fleet
+			CURSOR = dfn_fleet_review_cursor
+			SNAPSHOT = dfn_snapshot_fleet
+			EVENT = dfn_names.1
 		}
-	}
-	when_taken = {
-		set_variable = dfn_registry_enabled
-		dfn_review_fleet = yes
-	}
-	ai_chance = { base = 0 }
-}
-
-dfn_unlock_fleet_names = {
-	is_shown = {
-		is_ai = no
-		has_variable = dfn_registry_enabled
-	}
-	possible = { has_variable_list = dfn_fleet_locks }
-	when_taken = {
-		clear_variable_list = dfn_fleet_locks
-		clear_variable_list = dfn_reviewed_fleets
 	}
 	ai_chance = { base = 0 }
 }
@@ -61,27 +49,15 @@ dfn_review_air_names = {
 dfn_review_army_names = {
 	is_shown = { is_ai = no }
 	possible = {
-		save_temporary_scope_as = dfn_registry_country
-		any_military_formation = {
-			dfn_available_formation = { KIND = is_army LOCKS = dfn_army_locks }
+		any_military_formation = { is_army = yes owner = root }
+	}
+	when_taken = {
+		dfn_review_formation_branch = {
+			KIND = is_army
+			CURSOR = dfn_army_review_cursor
+			SNAPSHOT = dfn_snapshot_army
+			EVENT = dfn_names.3
 		}
-	}
-	when_taken = {
-		set_variable = dfn_army_registry_enabled
-		dfn_review_army = yes
-	}
-	ai_chance = { base = 0 }
-}
-
-dfn_unlock_army_names = {
-	is_shown = {
-		is_ai = no
-		has_variable = dfn_army_registry_enabled
-	}
-	possible = { has_variable_list = dfn_army_locks }
-	when_taken = {
-		clear_variable_list = dfn_army_locks
-		clear_variable_list = dfn_reviewed_armies
 	}
 	ai_chance = { base = 0 }
 }
