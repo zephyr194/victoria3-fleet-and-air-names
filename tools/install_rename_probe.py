@@ -80,8 +80,10 @@ def patch_window(source: str) -> str:
         "\t}",
         "}",
     ]
-    block += "\n" + "\n".join(indent + line for line in button)
-    return source[:block_start] + block + source[block_end:]
+    # Place the control as a SIBLING of the native editbox. A button nested
+    # inside an editbox is not laid out as a normal control by the GUI system.
+    replacement = block + "\n" + "\n".join(indent + line for line in button)
+    return source[:block_start] + replacement + source[block_end:]
 
 
 def main() -> None:
@@ -112,7 +114,9 @@ def main() -> None:
 
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(patched, encoding="utf-8-sig")
-    print(target)
+    print(f"Generated GUI override: {target}")
+    print("Activate ONLY this branch as a mod, then restart the game.")
+    print("If the button is absent, check that this file is inside the enabled mod directory.")
 
 
 if __name__ == "__main__":
