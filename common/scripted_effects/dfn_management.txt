@@ -1,0 +1,1634 @@
+# Country counters only. Names use fixed localized keys, slots 1..100.
+dfn_create_army_batch_effect = {
+	if = { limit = { var:dfn_management_count >= 1 } dfn_create_one_army_effect = yes }
+	if = { limit = { var:dfn_management_count >= 2 } dfn_create_one_army_effect = yes }
+	if = { limit = { var:dfn_management_count >= 3 } dfn_create_one_army_effect = yes }
+	if = { limit = { var:dfn_management_count >= 4 } dfn_create_one_army_effect = yes }
+	if = { limit = { var:dfn_management_count >= 5 } dfn_create_one_army_effect = yes }
+	if = { limit = { var:dfn_management_count >= 6 } dfn_create_one_army_effect = yes }
+	if = { limit = { var:dfn_management_count >= 7 } dfn_create_one_army_effect = yes }
+	if = { limit = { var:dfn_management_count >= 8 } dfn_create_one_army_effect = yes }
+	if = { limit = { var:dfn_management_count >= 9 } dfn_create_one_army_effect = yes }
+	if = { limit = { var:dfn_management_count >= 10 } dfn_create_one_army_effect = yes }
+}
+
+dfn_create_one_army_effect = {
+	if = {
+		limit = { var:dfn_created_army_total = 0 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_1
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 1 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_2
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 2 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_3
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 3 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_4
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 4 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_5
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 5 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_6
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 6 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_7
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 7 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_8
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 8 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_9
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 9 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_10
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 10 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_11
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 11 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_12
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 12 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_13
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 13 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_14
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 14 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_15
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 15 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_16
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 16 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_17
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 17 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_18
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 18 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_19
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 19 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_20
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 20 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_21
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 21 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_22
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 22 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_23
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 23 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_24
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 24 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_25
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 25 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_26
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 26 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_27
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 27 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_28
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 28 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_29
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 29 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_30
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 30 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_31
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 31 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_32
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 32 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_33
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 33 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_34
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 34 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_35
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 35 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_36
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 36 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_37
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 37 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_38
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 38 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_39
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 39 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_40
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 40 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_41
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 41 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_42
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 42 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_43
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 43 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_44
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 44 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_45
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 45 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_46
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 46 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_47
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 47 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_48
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 48 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_49
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 49 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_50
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 50 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_51
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 51 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_52
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 52 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_53
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 53 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_54
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 54 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_55
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 55 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_56
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 56 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_57
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 57 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_58
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 58 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_59
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 59 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_60
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 60 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_61
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 61 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_62
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 62 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_63
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 63 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_64
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 64 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_65
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 65 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_66
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 66 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_67
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 67 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_68
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 68 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_69
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 69 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_70
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 70 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_71
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 71 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_72
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 72 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_73
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 73 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_74
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 74 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_75
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 75 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_76
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 76 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_77
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 77 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_78
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 78 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_79
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 79 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_80
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 80 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_81
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 81 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_82
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 82 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_83
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 83 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_84
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 84 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_85
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 85 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_86
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 86 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_87
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 87 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_88
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 88 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_89
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 89 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_90
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 90 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_91
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 91 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_92
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 92 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_93
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 93 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_94
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 94 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_95
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 95 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_96
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 96 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_97
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 97 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_98
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 98 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_99
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_army_total = 99 }
+		create_military_formation = {
+			type = army
+			hq_region = scope:dfn_target_region
+			name = dfn_created_army_100
+		}
+	}
+	change_variable = { name = dfn_created_army_total add = 1 }
+}
+
+dfn_create_fleet_batch_effect = {
+	if = { limit = { var:dfn_management_count >= 1 } dfn_create_one_fleet_effect = yes }
+	if = { limit = { var:dfn_management_count >= 2 } dfn_create_one_fleet_effect = yes }
+	if = { limit = { var:dfn_management_count >= 3 } dfn_create_one_fleet_effect = yes }
+	if = { limit = { var:dfn_management_count >= 4 } dfn_create_one_fleet_effect = yes }
+	if = { limit = { var:dfn_management_count >= 5 } dfn_create_one_fleet_effect = yes }
+	if = { limit = { var:dfn_management_count >= 6 } dfn_create_one_fleet_effect = yes }
+	if = { limit = { var:dfn_management_count >= 7 } dfn_create_one_fleet_effect = yes }
+	if = { limit = { var:dfn_management_count >= 8 } dfn_create_one_fleet_effect = yes }
+	if = { limit = { var:dfn_management_count >= 9 } dfn_create_one_fleet_effect = yes }
+	if = { limit = { var:dfn_management_count >= 10 } dfn_create_one_fleet_effect = yes }
+}
+
+dfn_create_one_fleet_effect = {
+	if = {
+		limit = { var:dfn_created_fleet_total = 0 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_1
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 1 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_2
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 2 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_3
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 3 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_4
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 4 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_5
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 5 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_6
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 6 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_7
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 7 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_8
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 8 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_9
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 9 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_10
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 10 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_11
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 11 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_12
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 12 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_13
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 13 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_14
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 14 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_15
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 15 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_16
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 16 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_17
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 17 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_18
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 18 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_19
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 19 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_20
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 20 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_21
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 21 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_22
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 22 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_23
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 23 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_24
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 24 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_25
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 25 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_26
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 26 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_27
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 27 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_28
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 28 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_29
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 29 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_30
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 30 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_31
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 31 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_32
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 32 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_33
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 33 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_34
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 34 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_35
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 35 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_36
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 36 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_37
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 37 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_38
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 38 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_39
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 39 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_40
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 40 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_41
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 41 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_42
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 42 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_43
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 43 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_44
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 44 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_45
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 45 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_46
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 46 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_47
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 47 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_48
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 48 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_49
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 49 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_50
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 50 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_51
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 51 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_52
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 52 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_53
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 53 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_54
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 54 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_55
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 55 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_56
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 56 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_57
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 57 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_58
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 58 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_59
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 59 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_60
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 60 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_61
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 61 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_62
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 62 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_63
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 63 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_64
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 64 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_65
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 65 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_66
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 66 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_67
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 67 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_68
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 68 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_69
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 69 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_70
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 70 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_71
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 71 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_72
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 72 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_73
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 73 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_74
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 74 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_75
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 75 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_76
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 76 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_77
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 77 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_78
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 78 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_79
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 79 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_80
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 80 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_81
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 81 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_82
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 82 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_83
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 83 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_84
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 84 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_85
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 85 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_86
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 86 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_87
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 87 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_88
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 88 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_89
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 89 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_90
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 90 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_91
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 91 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_92
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 92 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_93
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 93 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_94
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 94 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_95
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 95 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_96
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 96 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_97
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 97 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_98
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 98 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_99
+		}
+	}
+	else_if = {
+		limit = { var:dfn_created_fleet_total = 99 }
+		create_military_formation = {
+			type = fleet
+			hq_region = scope:dfn_target_region
+			name = dfn_created_fleet_100
+		}
+	}
+	change_variable = { name = dfn_created_fleet_total add = 1 }
+}

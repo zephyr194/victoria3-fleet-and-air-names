@@ -1,0 +1,8 @@
+dfn_management_army_capacity = {
+	value = 100
+	subtract = var:dfn_created_army_total
+}
+dfn_management_fleet_capacity = {
+	value = 100
+	subtract = var:dfn_created_fleet_total
+}

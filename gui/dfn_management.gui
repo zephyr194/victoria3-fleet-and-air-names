@@ -1,0 +1,167 @@
+widget = {
+	name = "dfn_management"
+	size = { 100% 100% }
+	layer = layer_ingame_menu
+	visible = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
+
+	button = {
+		name = "dfn_management_launcher"
+		parentanchor = bottom|right
+		position = { -210 -100 }
+		size = { 145 40 }
+		onclick = "[GetScriptedGui('dfn_management_initialize').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		onclick = "[GetVariableSystem.Toggle('dfn_management_open')]"
+		tooltip = "dfn_management_title"
+		text = "dfn_management_title"
+	}
+
+	dfn_management_panel = {}
+}
+
+types dfn_management_types {
+	type dfn_management_panel = default_block_window {
+		name = "dfn_management_panel"
+		datacontext = "[AccessPlayer]"
+		visible = "[GetVariableSystem.Exists('dfn_management_open')]"
+		blockoverride "window_header_name" { text = "dfn_management_title" }
+		blockoverride "header_back_button" {
+			onclick = "[GetVariableSystem.Clear('dfn_management_open')]"
+		}
+		blockoverride "header_close_button" {
+			onclick = "[GetVariableSystem.Clear('dfn_management_open')]"
+		}
+		blockoverride "fixed_top" {
+			vbox = {
+				spacing = 8
+				hbox = {
+					spacing = 8
+					button = {
+						size = { 220 36 }
+						text = "dfn_management_army"
+						onclick = "[GetVariableSystem.Clear('dfn_management_navy')]"
+					}
+					button = {
+						size = { 220 36 }
+						text = "dfn_management_fleet"
+						onclick = "[GetVariableSystem.Set('dfn_management_navy', 'yes')]"
+					}
+				}
+				hbox = {
+					spacing = 6
+					textbox = { text = "dfn_management_count" }
+					button = {
+						size = { 36 32 }
+						text = "-"
+						enabled = "[GetScriptedGui('dfn_management_count_down').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						onclick = "[GetScriptedGui('dfn_management_count_down').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					}
+					textbox = { text = "[GetPlayer.MakeScope.Var('dfn_management_count').GetValue|0]" }
+					button = {
+						size = { 36 32 }
+						text = "+"
+						enabled = "[GetScriptedGui('dfn_management_count_up').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						onclick = "[GetScriptedGui('dfn_management_count_up').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					}
+				}
+				textbox = {
+					text = "dfn_management_create_help"
+					max_width = 460
+					multiline = yes
+				}
+			}
+		}
+		blockoverride "scrollarea_content" {
+			vbox = {
+				spacing = 10
+				visible = "[Not(GetVariableSystem.Exists('dfn_management_navy'))]"
+				textbox = { text = "dfn_management_headquarters" }
+				flowcontainer = {
+					direction = vertical
+					spacing = 6
+					datamodel = "[Country.AccessLandHQs]"
+					item = { dfn_land_hq_row = {} }
+				}
+				textbox = { text = "dfn_management_formations" }
+				flowcontainer = {
+					direction = vertical
+					spacing = 6
+					datamodel = "[Country.GetMilitaryFormationsArmy]"
+					item = { dfn_formation_row = {} }
+				}
+			}
+			vbox = {
+				spacing = 10
+				visible = "[GetVariableSystem.Exists('dfn_management_navy')]"
+				textbox = { text = "dfn_management_headquarters" }
+				flowcontainer = {
+					direction = vertical
+					spacing = 6
+					datamodel = "[Country.AccessNavalHQs]"
+					item = { dfn_naval_hq_row = {} }
+				}
+				textbox = { text = "dfn_management_formations" }
+				flowcontainer = {
+					direction = vertical
+					spacing = 6
+					datamodel = "[Country.GetMilitaryFormationsFleet]"
+					item = { dfn_formation_row = {} }
+				}
+			}
+		}
+	}
+
+	type dfn_land_hq_row = hbox {
+		spacing = 6
+		visible = "[And(Hq.IsValid, Hq.GetCountry.IsLocalPlayer)]"
+		textbox = { text = "[Hq.GetNameNoFlagNoConcept]" size = { 230 32 } }
+		button = {
+			size = { 80 32 }
+			text = "dfn_management_create"
+			enabled = "[GetScriptedGui('dfn_create_armies').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('dfn_target_region', Hq.GetStrategicRegion.MakeScope).End)]"
+			onclick = "[GetScriptedGui('dfn_create_armies').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('dfn_target_region', Hq.GetStrategicRegion.MakeScope).End)]"
+		}
+	}
+	type dfn_naval_hq_row = hbox {
+		spacing = 6
+		visible = "[And(Hq.IsValid, Hq.GetCountry.IsLocalPlayer)]"
+		textbox = { text = "[Hq.GetNameNoFlagNoConcept]" size = { 230 32 } }
+		button = {
+			size = { 80 32 }
+			text = "dfn_management_create"
+			enabled = "[GetScriptedGui('dfn_create_fleets').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('dfn_target_region', Hq.GetStrategicRegion.MakeScope).End)]"
+			onclick = "[GetScriptedGui('dfn_create_fleets').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('dfn_target_region', Hq.GetStrategicRegion.MakeScope).End)]"
+		}
+	}
+
+	type dfn_formation_row = vbox {
+		spacing = 4
+		textbox = {
+			text = "[MilitaryFormation.GetNameNoFormatting]"
+			max_width = 460
+		}
+		textbox = {
+			visible = "[MilitaryFormation.GetHomeHQ.IsValid]"
+			text = "[MilitaryFormation.GetHomeHQ.GetNameNoFlagNoConcept]"
+		}
+		hbox = {
+			spacing = 6
+			button = {
+				size = { 140 32 }
+				text = "dfn_management_rehome"
+				enabled = "[MilitaryFormation.CanRehome]"
+				onclick = "[MilitaryFormation.OnRehomeClicked]"
+			}
+			button = {
+				size = { 140 32 }
+				text = "dfn_management_transfer"
+				enabled = "[Not(MilitaryFormation.IsInBattle)]"
+				onclick = "[PopupManager.ShowTransferFormation(MilitaryFormation.AccessSelf)]"
+			}
+			button = {
+				size = { 140 32 }
+				text = "dfn_management_customize"
+				onclick = "[PopupManager.ShowMilitaryFormationChangeName(MilitaryFormation.AccessSelf)]"
+			}
+		}
+	}
+}

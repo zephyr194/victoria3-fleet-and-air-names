@@ -1,0 +1,64 @@
+dfn_management_initialize = {
+	scope = country
+	effect = {
+		if = {
+			limit = { NOT = { has_variable = dfn_management_count } }
+			set_variable = { name = dfn_management_count value = 1 }
+		}
+		if = {
+			limit = { NOT = { has_variable = dfn_created_army_total } }
+			set_variable = { name = dfn_created_army_total value = 0 }
+		}
+		if = {
+			limit = { NOT = { has_variable = dfn_created_fleet_total } }
+			set_variable = { name = dfn_created_fleet_total value = 0 }
+		}
+	}
+}
+
+# The management panel supplies its selected HQ's strategic region as the
+# saved scope dfn_target_region. The count is stored on the country as
+# dfn_management_count (1..10). All actions are player-only.
+dfn_management_count_down = {
+	scope = country
+	is_shown = { always = yes }
+	is_valid = { var:dfn_management_count > 1 }
+	effect = { change_variable = { name = dfn_management_count subtract = 1 } }
+}
+
+dfn_management_count_up = {
+	scope = country
+	is_shown = { always = yes }
+	is_valid = { has_variable = dfn_management_count var:dfn_management_count < 10 }
+	effect = { change_variable = { name = dfn_management_count add = 1 } }
+}
+
+dfn_create_armies = {
+	scope = country
+	saved_scopes = { dfn_target_region }
+	is_shown = { always = yes }
+	is_valid = {
+		has_variable = dfn_created_army_total
+		var:dfn_management_count <= dfn_management_army_capacity
+		var:dfn_management_count >= 1
+		var:dfn_management_count <= 10
+		exists = scope:dfn_target_region
+		any_scope_state = { region = scope:dfn_target_region }
+	}
+	effect = { dfn_create_army_batch_effect = yes }
+}
+
+dfn_create_fleets = {
+	scope = country
+	saved_scopes = { dfn_target_region }
+	is_shown = { always = yes }
+	is_valid = {
+		has_variable = dfn_created_fleet_total
+		var:dfn_management_count <= dfn_management_fleet_capacity
+		var:dfn_management_count >= 1
+		var:dfn_management_count <= 10
+		exists = scope:dfn_target_region
+		any_scope_state = { region = scope:dfn_target_region }
+	}
+	effect = { dfn_create_fleet_batch_effect = yes }
+}
